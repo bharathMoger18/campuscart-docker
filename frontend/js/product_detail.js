@@ -53,7 +53,8 @@ function renderProduct(p) {
             <input id="qtyInput" type="number" min="1" value="1" />
             <button id="addToCartBtn" class="btn btn-primary btn-cart">&#128722; Add to Cart</button>
           </div>
-          <button id="chatSellerBtn" class="btn-chat">&#128172; Chat with Seller</button>
+          <button id="wishlistBtn" class="btn-chat" style="margin-top:.5rem">❤️ Add to Wishlist</button>
+          <button id="chatSellerBtn" class="btn-chat" style="margin-top:.5rem"><button id="chatSellerBtn" class="btn-chat">&#128172; Chat with Seller</button>#128172; Chat with Seller</button>
         </div>
       </div>
     </div>
@@ -143,3 +144,22 @@ function escapeHtml(s) {
   if (s === null || s === undefined) return '';
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 }
+
+// Wishlist button handler - attached after renderProduct
+document.addEventListener('click', async (e) => {
+  if (e.target.id === 'wishlistBtn') {
+    try {
+      const btn = e.target;
+      btn.disabled = true;
+      btn.textContent = 'Adding...';
+      const productId = new URLSearchParams(location.search).get('id');
+      await api.post('/wishlist/add/', { product_id: productId });
+      showAlert('Added to wishlist!', 'success');
+      btn.textContent = '❤️ Added to Wishlist';
+    } catch (err) {
+      showAlert(err?.data?.message || 'Could not add to wishlist.', 'error');
+      e.target.disabled = false;
+      e.target.textContent = '❤️ Add to Wishlist';
+    }
+  }
+});
