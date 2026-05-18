@@ -54,7 +54,7 @@ function renderProduct(p) {
             <button id="addToCartBtn" class="btn btn-primary btn-cart">&#128722; Add to Cart</button>
           </div>
           <button id="wishlistBtn" class="btn-chat" style="margin-top:.5rem">❤️ Add to Wishlist</button>
-          <button id="chatSellerBtn" class="btn-chat" style="margin-top:.5rem"><button id="chatSellerBtn" class="btn-chat">&#128172; Chat with Seller</button>#128172; Chat with Seller</button>
+          <button id="chatSellerBtn" class="btn-chat" style="margin-top:.5rem">💬 Chat with Seller</button>
         </div>
       </div>
     </div>
