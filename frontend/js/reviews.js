@@ -117,21 +117,17 @@ function handleEditClick(e) {
   const comment = card.querySelector('.review-comment');
 
   // Hide all other edit forms
-  document
-    .querySelectorAll('.edit-form')
-    .forEach((f) => f.classList.add('hidden'));
-  document
-    .querySelectorAll('.review-comment')
-    .forEach((c) => c.classList.remove('hidden'));
+  document.querySelectorAll('.edit-form').forEach((f) => f.classList.remove('show'));
+  document.querySelectorAll('.review-comment').forEach((c) => c.style.display = '');
 
   // Show only this one
-  form.classList.remove('hidden');
-  comment.classList.add('hidden');
+  form.classList.add('show');
+  comment.style.display = 'none';
 
   const cancelBtn = form.querySelector('.btn-cancel');
   cancelBtn.onclick = () => {
-    form.classList.add('hidden');
-    comment.classList.remove('hidden');
+    form.classList.remove('show');
+    comment.style.display = '';
   };
 
   form.onsubmit = async (ev) => {
