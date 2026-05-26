@@ -55,7 +55,7 @@ function renderReviews(reviews) {
       )}</div>
         <p class="review-comment">${r.comment}</p>
 
-        <form class="edit-form hidden">
+        <form class="edit-form">
           <label>Rating (1–5):</label><br/>
           <input type="number" min="1" max="5" value="${
             r.rating
