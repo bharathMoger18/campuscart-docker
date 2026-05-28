@@ -77,7 +77,7 @@ WSGI_APPLICATION = "campuscart.wsgi.application"
 
 # Database - PostgreSQL
 # Use DATABASE_URL if available (Render), else fall back to individual vars (local Docker)
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
 if DATABASE_URL:
     import dj_database_url
     DATABASES = {"default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)}
