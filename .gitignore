@@ -22,3 +22,5 @@ Thumbs.db
 *.log
 .env
 campuscart-backend/.env
+
+!campuscart-backend/frontend_static

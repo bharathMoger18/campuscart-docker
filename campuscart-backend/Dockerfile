@@ -40,6 +40,8 @@ COPY --from=builder /install /usr/local
 
 ## Copy application code
 COPY . .
+## Copy frontend for serving via Django
+COPY frontend_static /app/frontend
 
 ## Create directories django needs
 ## statisfiles: collectstatic output 
